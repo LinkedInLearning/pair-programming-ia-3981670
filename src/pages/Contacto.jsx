@@ -13,19 +13,6 @@ const Contacto = () => {
         return '';
     };
 
-    const sumar = (a, b) => {
-        try {
-            const num1 = Number(a);
-            const num2 = Number(b);
-            if (isNaN(num1) || isNaN(num2)) {
-                throw new Error('Ambos valores deben ser números');
-            }
-            return num1 + num2;
-        } catch (error) {
-            return `Error: ${error.message}`;
-        }
-    };
-
     const validateEmail = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email.trim() === '') {
