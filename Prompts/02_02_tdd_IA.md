@@ -2,6 +2,6 @@ Crea un botón con el texto "Borrar Datos" que borre el texto introducido por el
 
 Pasos
 
-1- Escribe las pruebas para verificar que el componente funcione correctamente.
+1- Genera las pruebas para verificar que el componente funcione correctamente.
 
-2- Escribe el código del botón y asegúrate de que pasan todas las pruebas.
+2- Implementa el código del botón y asegúrate de que pasan las pruebas.

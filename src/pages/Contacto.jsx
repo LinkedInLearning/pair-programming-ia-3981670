@@ -23,8 +23,9 @@ const Contacto = () => {
         return '';
     };
 
+
     const validateMessage = () => {
-        if (message.trim() === '') {
+        if (message.trim().length < 3) {
             return 'El mensaje es obligatorio';
         }
         return '';
@@ -47,6 +48,13 @@ const Contacto = () => {
             console.log('Formulario enviado', { name, email, message });
             setErrors({});
         }
+    };
+
+    const handleClear = () => {
+        setName('');
+        setEmail('');
+        setMessage('');
+        setErrors({});
     };
 
     return (
@@ -92,7 +100,14 @@ const Contacto = () => {
                     ></textarea>
                     {errors.message && <div className="invalid-feedback">{errors.message}</div>}
                 </div>
-                <button type="submit" className="btn btn-success">Enviar Datos</button>
+                <button type="submit" className="btn btn-success me-2">Enviar Datos</button>
+                <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={handleClear}
+                >
+                    Borrar Datos
+                </button>
             </form>
         </div>
     );
