@@ -3,7 +3,7 @@ import capitalize from 'lodash/capitalize';
 
 const Contacto = () => {
     const [name, setName] = useState('');
-    const [lastName, setLastName] = useState(''); // Nuevo estado para apellido
+    const [lastName, setLastName] = useState('');  
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [errors, setErrors] = useState({});
