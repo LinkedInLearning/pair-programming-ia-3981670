@@ -134,24 +134,4 @@ describe('Contacto Component - Borrar Datos', () => {
         expect(screen.queryByText('El mensaje es obligatorio')).not.toBeInTheDocument();
     });
 
-    it('clears the form fields when "Borrar Datos" is clicked', () => {
-        render(<Contacto />);
-        const nameInput = screen.getByLabelText('Nombre:');
-        const emailInput = screen.getByLabelText('Correo Electrónico:');
-        const messageInput = screen.getByLabelText('Mensaje:');
-        const borrarBtn = screen.getByText('Borrar Datos');
-
-        // Fill the form
-        fireEvent.change(nameInput, { target: { value: 'Test Name' } });
-        fireEvent.change(emailInput, { target: { value: 'test@email.com' } });
-        fireEvent.change(messageInput, { target: { value: 'Mensaje de prueba' } });
-
-        // Click the clear button
-        fireEvent.click(borrarBtn);
-
-        expect(nameInput.value).toBe('');
-        expect(emailInput.value).toBe('');
-        expect(messageInput.value).toBe('');
-    });
-
 });

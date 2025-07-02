@@ -31,6 +31,13 @@ const Contacto = () => {
         return '';
     };
 
+    const handleClear = () => {
+        setName('');
+        setEmail('');
+        setMessage('');
+        setErrors({});
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const nameError = validateName();
@@ -48,13 +55,6 @@ const Contacto = () => {
             console.log('Formulario enviado', { name, email, message });
             setErrors({});
         }
-    };
-
-    const handleClear = () => {
-        setName('');
-        setEmail('');
-        setMessage('');
-        setErrors({});
     };
 
     return (
@@ -100,10 +100,10 @@ const Contacto = () => {
                     ></textarea>
                     {errors.message && <div className="invalid-feedback">{errors.message}</div>}
                 </div>
-                <button type="submit" className="btn btn-success me-2">Enviar Datos</button>
-                <button
+                <button type="submit" className="btn btn-success">Enviar Datos</button>
+            <button
                     type="button"
-                    className="btn btn-secondary"
+                    className="btn btn-danger ms-2"
                     onClick={handleClear}
                 >
                     Borrar Datos
