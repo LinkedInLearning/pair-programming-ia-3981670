@@ -1,15 +1,24 @@
 function Nosotros() {
 
-  // Listado JSON con 3 miembros de junta directiva
-  // estructura: [{nombre:"juan pérez", cargo:"Director"}]
+  const miembrosJunta = [
+    { nombre: "Juan Pérez", cargo: "Director" },
+    { nombre: "Ana Gómez", cargo: "Subdirectora" },
+    { nombre: "Luis Martínez", cargo: "Secretario" }
+  ];
 
   return (
     <>
-    <h1>Sobre Nosotros</h1>
+      <h1>Sobre Nosotros</h1>
 
-    // Texto de bienvenida 
+      <p>Bienvenidos a nuestra página. Aquí encontrarás información sobre nuestra junta directiva.</p>
 
-    // bucle listando miembros de junta directiva
+      <ul>
+        {miembrosJunta.map((miembro, index) => (
+          <li key={index}>
+            {miembro.nombre} - {miembro.cargo}
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
