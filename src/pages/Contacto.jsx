@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import capitalize from 'lodash/capitalize';
 
 const Contacto = () => {
     const [name, setName] = useState('');
@@ -7,12 +8,19 @@ const Contacto = () => {
     const [message, setMessage] = useState('');
     const [errors, setErrors] = useState({});
 
+    const capitalizeFields = (name, lastName) => {
+        return {
+            name: capitalize(name),
+            lastName: capitalize(lastName),
+        };
+    };
+
     // Validación para nombre
     const validateName = () => {
         if (name.trim() === '') {
-            return 'El nombre es obligatorio';
+            return capitalizeFields('El nombre es obligatorio');
         }
-        return '';
+        return capitalizeFields('');
     };
 
     // Validación para apellido
