@@ -2,10 +2,12 @@ import { useState } from 'react';
 
 const Contacto = () => {
     const [name, setName] = useState('');
+    const [lastName, setLastName] = useState(''); // Nuevo estado para apellido
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [errors, setErrors] = useState({});
 
+    // Validación para nombre
     const validateName = () => {
         if (name.trim() === '') {
             return 'El nombre es obligatorio';
@@ -13,6 +15,15 @@ const Contacto = () => {
         return '';
     };
 
+    // Validación para apellido
+    const validateLastName = () => {
+        if (lastName.trim() === '') {
+            return 'El apellido es obligatorio';
+        }
+        return '';
+    };
+
+    // Validación para email
     const validateEmail = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email.trim() === '') {
@@ -23,7 +34,7 @@ const Contacto = () => {
         return '';
     };
 
-
+    // Validación para mensaje
     const validateMessage = () => {
         if (message.trim().length < 3) {
             return 'El mensaje es obligatorio';
@@ -31,28 +42,33 @@ const Contacto = () => {
         return '';
     };
 
+    // Limpia todos los campos y errores
     const handleClear = () => {
         setName('');
+        setLastName('');
         setEmail('');
         setMessage('');
         setErrors({});
     };
 
+    // Maneja el envío del formulario
     const handleSubmit = (e) => {
         e.preventDefault();
         const nameError = validateName();
+        const lastNameError = validateLastName();
         const emailError = validateEmail();
         const messageError = validateMessage();
 
-        if (nameError || emailError || messageError) {
+        if (nameError || lastNameError || emailError || messageError) {
             setErrors({
                 name: nameError,
+                lastName: lastNameError,
                 email: emailError,
                 message: messageError,
             });
-        } else {
+        } else { 
             // Submit the form
-            console.log('Formulario enviado', { name, email, message });
+            console.log('Formulario enviado', { name, lastName, email, message });
             setErrors({});
         }
     };
@@ -74,6 +90,20 @@ const Contacto = () => {
                         required
                     />
                     {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+                </div>
+                {/* Campo Apellido después de Nombre */}
+                <div className="mb-3">
+                    <label htmlFor="lastName" className="form-label">Apellido:</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        className="form-control"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                    />
+                    {errors.lastName && <div className="invalid-feedback">{errors.lastName}</div>}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Correo Electrónico:</label>
@@ -101,7 +131,7 @@ const Contacto = () => {
                     {errors.message && <div className="invalid-feedback">{errors.message}</div>}
                 </div>
                 <button type="submit" className="btn btn-success">Enviar Datos</button>
-            <button
+                <button
                     type="button"
                     className="btn btn-danger ms-2"
                     onClick={handleClear}

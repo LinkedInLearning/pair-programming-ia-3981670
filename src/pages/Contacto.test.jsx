@@ -39,7 +39,7 @@ describe('Contacto Component', () => {
         expect(screen.queryByText('El correo electrónico es obligatorio')).not.toBeInTheDocument();
         expect(screen.queryByText('El correo electrónico no es válido')).not.toBeInTheDocument();
     });
-});
+}); 
 describe('Contacto Component - Borrar Datos', () => {
     it('renders the "Borrar Datos" button', () => {
         render(<Contacto />);
@@ -134,4 +134,54 @@ describe('Contacto Component - Borrar Datos', () => {
         expect(screen.queryByText('El mensaje es obligatorio')).not.toBeInTheDocument();
     });
 
+});
+describe('Campo Apellido en Contacto', () => {
+    it('debe renderizar la casilla de apellido después de la casilla de nombre', () => {
+        render(<Contacto />);
+        const nameInput = screen.getByLabelText('Nombre:');
+        const lastNameInput = screen.getByLabelText('Apellido:');
+        // Verifica que ambos campos existan
+        expect(nameInput).toBeInTheDocument();
+        expect(lastNameInput).toBeInTheDocument();
+        // Verifica el orden en el DOM
+        const form = nameInput.closest('form');
+        const inputs = form.querySelectorAll('input, textarea');
+        expect(inputs[0]).toBe(nameInput);
+        expect(inputs[1]).toBe(lastNameInput);
+    });
+
+    it('debe mostrar un error si el apellido está vacío al enviar el formulario', () => {
+        render(<Contacto />);
+        fireEvent.change(screen.getByLabelText('Nombre:'), { target: { value: 'Carlos' } });
+        fireEvent.change(screen.getByLabelText('Apellido:'), { target: { value: '' } });
+        fireEvent.change(screen.getByLabelText('Correo Electrónico:'), { target: { value: 'carlos@mail.com' } });
+        fireEvent.change(screen.getByLabelText('Mensaje:'), { target: { value: 'Hola' } });
+        fireEvent.click(screen.getByText('Enviar Datos'));
+        expect(screen.getByText('El apellido es obligatorio')).toBeInTheDocument();
+    });
+
+    it('no debe mostrar error si el apellido tiene un valor', () => {
+        render(<Contacto />);
+        fireEvent.change(screen.getByLabelText('Nombre:'), { target: { value: 'Carlos' } });
+        fireEvent.change(screen.getByLabelText('Apellido:'), { target: { value: 'Pérez' } });
+        fireEvent.change(screen.getByLabelText('Correo Electrónico:'), { target: { value: 'carlos@mail.com' } });
+        fireEvent.change(screen.getByLabelText('Mensaje:'), { target: { value: 'Hola' } });
+        fireEvent.click(screen.getByText('Enviar Datos'));
+        expect(screen.queryByText('El apellido es obligatorio')).not.toBeInTheDocument();
+    });
+
+    it('el botón "Borrar Datos" limpia el campo apellido y su error', () => {
+        render(<Contacto />);
+        fireEvent.change(screen.getByLabelText('Nombre:'), { target: { value: 'Carlos' } });
+        fireEvent.change(screen.getByLabelText('Apellido:'), { target: { value: '' } });
+        fireEvent.change(screen.getByLabelText('Correo Electrónico:'), { target: { value: 'carlos@mail.com' } });
+        fireEvent.change(screen.getByLabelText('Mensaje:'), { target: { value: 'Hola' } });
+        fireEvent.click(screen.getByText('Enviar Datos'));
+        expect(screen.getByText('El apellido es obligatorio')).toBeInTheDocument();
+
+        fireEvent.change(screen.getByLabelText('Apellido:'), { target: { value: 'Pérez' } });
+        fireEvent.click(screen.getByText('Borrar Datos'));
+        expect(screen.getByLabelText('Apellido:').value).toBe('');
+        expect(screen.queryByText('El apellido es obligatorio')).not.toBeInTheDocument();
+    });
 });
