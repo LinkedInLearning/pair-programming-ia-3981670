@@ -1,9 +1,12 @@
-# COURSENAME
-This is the repository for the LinkedIn Learning course `course-name`. The full course is available from [LinkedIn Learning][lil-course-url].
+# Pair Programming con IA
+This is the repository for the LinkedIn Learning course `Pair Programming con IA`. The full course is available from [LinkedIn Learning][lil-course-url].
 
 ![course-name-alt-text][lil-thumbnail-url] 
 
+Descubre cómo integrar la inteligencia artificial en tus sesiones de programación en pareja para mejorar tu flujo de trabajo y tomar mejores decisiones técnicas. Aprende a configurar herramientas de IA para colaborar de forma fluida y eficiente en entornos de desarrollo reales. Domina los principios del pair programming y adapta sus buenas prácticas al trabajo con asistentes de IA, desde la escritura de código hasta la revisión y depuración. Este curso te guía paso a paso para que conviertas la inteligencia artificial en un aliado estratégico en tu día a día como desarrollador.
+
 _See the readme file in the main branch for updated instructions and information._
+
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
 
@@ -52,5 +55,5 @@ npm run test
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
 [lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQG0eDHsyOSqTA/learning-public-crop_675_1200/B4EZVdqqdwHUAY-/0/1741033220778?e=2147483647&v=beta&t=FxUDo6FA8W8CiFROwqfZKL_mzQhYx9loYLfjN-LNjgA
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQHlpqxcKGxeOw/learning-public-crop_675_1200/B4EZhWCTwlHoAY-/0/1753790102900?e=2147483647&v=beta&t=P7_8vfGhuIq4COCLrCarDTzZHjiBkrbTclfy-bkdowE
 
