@@ -7,26 +7,15 @@ Descubre cómo integrar la inteligencia artificial en tus sesiones de programaci
 
 _See the readme file in the main branch for updated instructions and information._
 
-## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+## Instrucciones
+Este repositorio tiene ramas (branches) para cada uno de los vídeos del curso. Puedes usar el menú emergente de la rama en GitHub para cambiar a una rama específica y echar un vistazo al curso en esa etapa, o puedes añadir /tree/nombre_de_la_rama a la URL para ir a la rama a la que quieres acceder.
 
-## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
+## Ramas
+Las ramas están estructuradas para corresponder a los vídeos del curso y la convención de nomenclatura es Vídeo#_i y Vídeo#_f. Todas las ramas tendrán un estado inicial y otro final. Están marcadas con las letras i («inicio») y f («fin»). La branch i tiene el código para desarrollar el ejercicio mientras que la branch f contiene la solución. Por ejemplo, la rama denominada 02_i corresponde al segundo desafío y 02_f contiene la solución.
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
 
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
-
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
-
-## Installing
-1. To use these exercise files, you must have the following installed:
+## Instalación
+1. Para usar estos archivos debes tener instalado lo siguiente:
 	- Node.js (version 16 or higher)
     - npm
 
@@ -50,10 +39,14 @@ Run tests:
 ```bash
 npm run test
 ```
+### Docente
 
+**Carlos Solís**
+
+Echa un vistazo a mis otros cursos en [LinkedIn Learning](https://www.linkedin.com/learning/instructors/carlos-solis).
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
-
-[lil-course-url]: https://www.linkedin.com/learning/
+[lil-course-url]: https://www.linkedin.com/learning/pair-programming-con-ia
 [lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQHlpqxcKGxeOw/learning-public-crop_675_1200/B4EZhWCTwlHoAY-/0/1753790102900?e=2147483647&v=beta&t=P7_8vfGhuIq4COCLrCarDTzZHjiBkrbTclfy-bkdowE
+
 
