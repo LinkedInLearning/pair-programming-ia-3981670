@@ -1,5 +1,5 @@
 # Pair Programming con IA
-This is the repository for the LinkedIn Learning course `Pair Programming con IA`. The full course is available from [LinkedIn Learning][lil-course-url].
+Este es el repositorio del curso `Pair Programming con IA`. El curso completo esta disponible en [LinkedIn Learning][lil-course-url].
 
 ![course-name-alt-text][lil-thumbnail-url] 
 
